@@ -8,6 +8,7 @@ from .views.checkout import CheckOut
 from .views.orders import OrderView
 from .middlewares.auth import  auth_middleware
 from .API.loginAPI import LoginAPI
+from .API.signupAPI import SignupAPI
 
 
 urlpatterns = [
@@ -21,5 +22,5 @@ urlpatterns = [
     path('check-out', CheckOut.as_view() , name='checkout'),
     path('orders', auth_middleware(OrderView.as_view()), name='orders'),
     path('api/login', LoginAPI.as_view()),
-
+    path('api/signup', SignupAPI.as_view()),
 ]
