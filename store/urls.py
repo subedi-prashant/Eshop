@@ -9,6 +9,7 @@ from .views.orders import OrderView
 from .middlewares.auth import  auth_middleware
 from .API.loginAPI import LoginAPI
 from .API.signupAPI import SignupAPI
+from .API.productAPI import ProductAPI
 
 
 urlpatterns = [
@@ -23,4 +24,7 @@ urlpatterns = [
     path('orders', auth_middleware(OrderView.as_view()), name='orders'),
     path('api/login', LoginAPI.as_view()),
     path('api/signup', SignupAPI.as_view()),
+    #path('api/getallproducts', ProductAPI.as_view()),
+    path('products/', ProductAPI.as_view(), name='products-list'),
+    path('products/<int:product_id>/', ProductAPI.as_view(), name='product-detail'),
 ]
