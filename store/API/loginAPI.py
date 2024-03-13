@@ -34,6 +34,6 @@ class LoginAPI(APIView):
                 request.session['customer'] = customer.id
                 return Response({'message': 'Login successful', 'customer_id': request.session['customer']}, status=status.HTTP_200_OK)
             else:
-                return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
+                return Response({'message': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
         else:
-            return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'message': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
